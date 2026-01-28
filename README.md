@@ -6,16 +6,16 @@ When the user says **"Blue"** or **"Red"**, the app displays a corresponding col
 
 ---
 
-## 📱 Features
+## Features
 
 - 🎤 **Speech Recognition** — Detects when the user says *“Blue”* or *“Red”* using Android’s `SpeechRecognizer`.
 - 🗣️ **Text-to-Speech (TTS)** — Responds to the user with a spoken confirmation.
-- 🎨 **Dynamic UI Feedback** — Displays a screen of the recognized color.
-- ⚙️ **MVVM Architecture** — Logic is cleanly separated using a `ViewModel` for better state management and scalability.
+- **Dynamic UI Feedback** — Displays a screen of the recognized color.
+- **MVVM Architecture** — Logic is cleanly separated using a `ViewModel` for better state management and scalability.
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 | Component | Description |
 |------------|-------------|
@@ -28,7 +28,7 @@ When the user says **"Blue"** or **"Red"**, the app displays a corresponding col
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 1. The app listens for voice input using Android’s **SpeechRecognizer**.
 2. When the user says:
@@ -38,7 +38,7 @@ When the user says **"Blue"** or **"Red"**, the app displays a corresponding col
 
 ---
 
-## 🔐 Permissions
+## Permissions
 
 Add the following permission to your AndroidManifest.xml:
 
