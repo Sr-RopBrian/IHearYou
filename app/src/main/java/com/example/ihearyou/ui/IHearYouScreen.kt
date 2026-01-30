@@ -59,7 +59,7 @@ fun IHearYouScreen(
     val packageName = context.packageName
     val activity = context as Activity
 
-    // calling the SpeechRecognizer
+    // creating a SpeechRecognizer instance
     val speechRecognizer = remember {
         SpeechRecognizer.createSpeechRecognizer(context)
     }
@@ -93,14 +93,13 @@ fun IHearYouScreen(
                 val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                 val spokenText = matches?.firstOrNull()?.lowercase(Locale.getDefault()) ?: ""
 
-                ihuViewModel.updateText(spokenText)
-
                 when (spokenText) {
                     "blue" -> { ttsHelper.speak("Here is the blue screen") }
                     "red" -> { ttsHelper.speak("Here is the red screen") }
-                    "" -> { ttsHelper.speak("Please say something") }
-                    else -> { ttsHelper.speak("Sorry, I didn't get that.") }
+                    else -> { ttsHelper.speak("Sorry, I can't help with that.") }
                 }
+
+                ihuViewModel.updateText(spokenText)
 
                 ihuViewModel.handleRecognitionResult(
                     onUnrecognized = {
@@ -116,6 +115,7 @@ fun IHearYouScreen(
 
         onDispose {
             speechRecognizer.destroy()
+            ttsHelper.shutdown()
         }
     }
 
